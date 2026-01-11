@@ -1,0 +1,137 @@
+{
+  "source_dir": "/Users/mizuno/study/nlp100_moonbit",
+  "name": "hanamizuno/nlp100_moonbit",
+  "packages": [
+    {
+      "is-main": false,
+      "is-third-party": false,
+      "root-path": "/Users/mizuno/study/nlp100_moonbit",
+      "root": "hanamizuno/nlp100_moonbit",
+      "rel": "",
+      "files": {
+        "/Users/mizuno/study/nlp100_moonbit/nlp100_moonbit.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        }
+      },
+      "wbtest-files": {},
+      "test-files": {
+        "/Users/mizuno/study/nlp100_moonbit/nlp100_moonbit_test.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        }
+      },
+      "mbt-md-files": {
+        "/Users/mizuno/study/nlp100_moonbit/README.mbt.md": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        }
+      },
+      "deps": [
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "/Users/mizuno/.moon/lib/core/prelude"
+        }
+      ],
+      "wbtest-deps": [
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "/Users/mizuno/.moon/lib/core/prelude"
+        }
+      ],
+      "test-deps": [
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "/Users/mizuno/.moon/lib/core/prelude"
+        }
+      ],
+      "artifact": "/Users/mizuno/study/nlp100_moonbit/_build/wasm-gc/release/check/nlp100_moonbit.mi"
+    },
+    {
+      "is-main": true,
+      "is-third-party": false,
+      "root-path": "/Users/mizuno/study/nlp100_moonbit/cmd/main",
+      "root": "hanamizuno/nlp100_moonbit",
+      "rel": "cmd/main",
+      "files": {
+        "/Users/mizuno/study/nlp100_moonbit/cmd/main/main.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        }
+      },
+      "wbtest-files": {},
+      "test-files": {},
+      "mbt-md-files": {},
+      "deps": [
+        {
+          "path": "hanamizuno/nlp100_moonbit",
+          "alias": "lib",
+          "fspath": "/Users/mizuno/study/nlp100_moonbit"
+        },
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "/Users/mizuno/.moon/lib/core/prelude"
+        }
+      ],
+      "wbtest-deps": [
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "/Users/mizuno/.moon/lib/core/prelude"
+        }
+      ],
+      "test-deps": [
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "/Users/mizuno/.moon/lib/core/prelude"
+        }
+      ],
+      "artifact": "/Users/mizuno/study/nlp100_moonbit/_build/wasm-gc/release/check/cmd/main/main.mi"
+    }
+  ],
+  "deps": [],
+  "backend": "wasm-gc",
+  "opt_level": "release",
+  "source": null
+}

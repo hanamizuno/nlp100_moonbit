@@ -1,0 +1,9 @@
+{
+  "is-main": true,
+  "import": [
+    {
+      "path": "hanamizuno/nlp100_moonbit",
+      "alias": "lib"
+    }
+  ]
+}
