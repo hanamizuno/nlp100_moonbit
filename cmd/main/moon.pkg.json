@@ -4,6 +4,10 @@
     {
       "path": "hanamizuno/nlp100_moonbit",
       "alias": "lib"
+    },
+    {
+      "path": "hanamizuno/nlp100_moonbit/src",
+      "alias": "src"
     }
   ]
 }
