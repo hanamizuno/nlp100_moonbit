@@ -31,10 +31,10 @@ pub fn e_00_2() -> String {
   let word_1 : String = "パトカー"
   let word_2 : String = "タクシー"
   word_1
-    |> String::to_array()
-    |> Array::zip(word_2.to_array())
-    |> Array::map(pair => String::from_array([pair.0, pair.1]))
-    |> Array::join("")
+  |> String::to_array()
+  |> Array::zip(word_2.to_array())
+  |> Array::map(pair => String::from_array([pair.0, pair.1]))
+  |> Array::join("")
 }
 
 ///|
@@ -60,8 +60,8 @@ pub fn e_00_3() -> String {
   }
 
   zip(word_1.to_array(), word_2.to_array())
-    |> Array::map(pair => String::from_array([pair.0, pair.1]))
-    |> Array::join("")
+  |> Array::map(pair => String::from_array([pair.0, pair.1]))
+  |> Array::join("")
 }
 
 ///|
@@ -171,13 +171,13 @@ pub fn e_00_6() -> String {
 pub fn e_01() -> String {
   let word = "パタトクカシーー"
   word
-    /// Iter2は (index, element)
-    |> String::iter2()
-    /// Iter2にはmap/filterがないので、Iterに変換する
-    |> Iter2::iter()
-    |> Iter::filter(pair => pair.0 % 2 == 0)
-    |> Iter::map(pair => pair.1)
-    |> String::from_iter()
+  /// Iter2は (index, element)
+  |> String::iter2()
+  /// Iter2にはmap/filterがないので、Iterに変換する
+  |> Iter2::iter()
+  |> Iter::filter(pair => pair.0 % 2 == 0)
+  |> Iter::map(pair => pair.1)
+  |> String::from_iter()
 }
 
 ///|
@@ -201,8 +201,6 @@ pub fn e_01_2() -> String {
 }
 
 ///|
-/// 文字列を逆順にする
-///
 /// ```mbt check
 /// test {
 ///   inspect(e_02(), content="desserts")
@@ -211,4 +209,20 @@ pub fn e_01_2() -> String {
 pub fn e_02() -> String {
   let word = "stressed"
   word |> String::rev()
+}
+
+///|
+/// ```mbt check
+/// test {
+///   inspect(e_03(), content="[3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9]")
+/// }
+/// ```
+pub fn e_03() -> Array[Int] {
+  let sentence = "Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics."
+  sentence
+  |> String::replace_all(old=",", new="")
+  |> String::replace_all(old=".", new="")
+  |> String::split(" ")
+  |> Iter::map(StringView::length)
+  |> Iter::to_array()
 }
