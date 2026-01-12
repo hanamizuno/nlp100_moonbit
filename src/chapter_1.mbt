@@ -2,34 +2,50 @@
 
 ///|
 /// メソッドチェーンを使う
-pub fn e_00() -> Unit {
+///
+/// ```mbt check
+/// test {
+///   inspect(e_00(), content="パタトクカシーー")
+/// }
+/// ```
+pub fn e_00() -> String {
   let word_1 : String = "パトカー"
   let word_2 : String = "タクシー"
-  let result = word_1
-    .to_array()
-    .zip(word_2.to_array())
-    /// `(a, b) => a + b` みたいな書き方はできない
-    .map(pair => String::from_array([pair.0, pair.1]))
-    .join("")
-  println(result)
+  word_1
+  .to_array()
+  .zip(word_2.to_array())
+  /// `(a, b) => a + b` みたいな書き方はできない
+  .map(pair => String::from_array([pair.0, pair.1]))
+  .join("")
 }
 
 ///|
 /// パイプライン演算子を使う
-pub fn e_00_2() -> Unit {
+///
+/// ```mbt check
+/// test {
+///   inspect(e_00_2(), content="パタトクカシーー")
+/// }
+/// ```
+pub fn e_00_2() -> String {
   let word_1 : String = "パトカー"
   let word_2 : String = "タクシー"
-  let result = word_1
+  word_1
     |> String::to_array()
     |> Array::zip(word_2.to_array())
     |> Array::map(pair => String::from_array([pair.0, pair.1]))
     |> Array::join("")
-  println(result)
 }
 
 ///|
 /// zipをmatchと再帰で実装してみる
-pub fn e_00_3() -> Unit {
+///
+/// ```mbt check
+/// test {
+///   inspect(e_00_3(), content="パタトクカシーー")
+/// }
+/// ```
+pub fn e_00_3() -> String {
   let word_1 : String = "パトカー"
   let word_2 : String = "タクシー"
 
@@ -43,10 +59,9 @@ pub fn e_00_3() -> Unit {
     }
   }
 
-  let result = zip(word_1.to_array(), word_2.to_array())
+  zip(word_1.to_array(), word_2.to_array())
     |> Array::map(pair => String::from_array([pair.0, pair.1]))
     |> Array::join("")
-  println(result)
 }
 
 ///|
@@ -62,7 +77,13 @@ pub fn[A, B] zip_(a : Array[A], b : Array[B]) -> Array[(A, B)] {
 
 ///|
 /// forループを使う
-pub fn e_00_4() -> Unit {
+///
+/// ```mbt check
+/// test {
+///   inspect(e_00_4(), content="パタトクカシーー")
+/// }
+/// ```
+pub fn e_00_4() -> String {
   let word_1 : String = "パトカー"
   let word_2 : String = "タクシー"
   let length = if word_1.length() < word_2.length() {
@@ -78,11 +99,18 @@ pub fn e_00_4() -> Unit {
   for i in 0..<length {
     result_array.push(String::from_array([word_1_arr[i], word_2_arr[i]]))
   }
-  println(result_array.join(""))
+  result_array.join("")
 }
 
 ///|
-pub fn e_00_5() -> Unit {
+/// mutableな変数とテンプレートリテラルを使う
+///
+/// ```mbt check
+/// test {
+///   inspect(e_00_5(), content="パタトクカシーー")
+/// }
+/// ```
+pub fn e_00_5() -> String {
   let word_1 : String = "パトカー"
   let word_2 : String = "タクシー"
   let length = if word_1.length() < word_2.length() {
@@ -100,12 +128,18 @@ pub fn e_00_5() -> Unit {
     /// テンプレートリテラルを使う
     result = result + "\{word_1_arr[i]}\{word_2_arr[i]}"
   }
-  println(result)
+  result
 }
 
 ///|
 /// StringBuilderを使う
-pub fn e_00_6() -> Unit {
+///
+/// ```mbt check
+/// test {
+///   inspect(e_00_6(), content="パタトクカシーー")
+/// }
+/// ```
+pub fn e_00_6() -> String {
   let word_1 : String = "パトカー"
   let word_2 : String = "タクシー"
   let length = if word_1.length() < word_2.length() {
@@ -123,15 +157,20 @@ pub fn e_00_6() -> Unit {
     builder.write_char(word_1_arr[i])
     builder.write_char(word_2_arr[i])
   }
-  let result = builder.to_string()
-  println(result)
+  builder.to_string()
 }
 
 ///|
 /// Iter, Iter2で処理する
-pub fn e_01() -> Unit {
+///
+/// ```mbt check
+/// test {
+///   inspect(e_01(), content="パトカー")
+/// }
+/// ```
+pub fn e_01() -> String {
   let word = "パタトクカシーー"
-  let result = word
+  word
     /// Iter2は (index, element)
     |> String::iter2()
     /// Iter2にはmap/filterがないので、Iterに変換する
@@ -139,12 +178,17 @@ pub fn e_01() -> Unit {
     |> Iter::filter(pair => pair.0 % 2 == 0)
     |> Iter::map(pair => pair.1)
     |> String::from_iter()
-  println(result)
 }
 
 ///|
 /// forループで処理する
-pub fn e_01_2() -> Unit {
+///
+/// ```mbt check
+/// test {
+///   inspect(e_01_2(), content="パトカー")
+/// }
+/// ```
+pub fn e_01_2() -> String {
   let word = "パタトクカシーー"
   let arr = word.to_array()
   let builder = StringBuilder::new(size_hint=arr.length() / 2)
@@ -153,12 +197,18 @@ pub fn e_01_2() -> Unit {
       builder.write_char(arr[i])
     }
   }
-  println(builder.to_string())
+  builder.to_string()
 }
 
 ///|
-pub fn e_02() -> Unit {
+/// 文字列を逆順にする
+///
+/// ```mbt check
+/// test {
+///   inspect(e_02(), content="desserts")
+/// }
+/// ```
+pub fn e_02() -> String {
   let word = "stressed"
-  let result = word |> String::rev()
-  println(result)
+  word |> String::rev()
 }
