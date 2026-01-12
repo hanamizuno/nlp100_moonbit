@@ -1,4 +1,8 @@
+# `moon new` generated files
 .DS_Store
 target/
 .mooncakes/
 .moonagent/
+
+# 
+_build/
