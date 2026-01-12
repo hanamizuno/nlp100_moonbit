@@ -104,6 +104,30 @@ pub fn e_00_5() -> Unit {
 }
 
 ///|
+/// StringBuilderを使う
+pub fn e_00_6() -> Unit {
+  let word_1 : String = "パトカー"
+  let word_2 : String = "タクシー"
+  let length = if word_1.length() < word_2.length() {
+    word_1.length()
+  } else {
+    word_2.length()
+  }
+
+  /// String[i]はCharではなくUInt16を返すので、まずArray[Char]に変換する
+  let word_1_arr = word_1.to_array()
+  let word_2_arr = word_2.to_array()
+  /// 文字列生成にはStringBuilderを使うと効率的らしい
+  let builder = StringBuilder::new(size_hint=length * 2)
+  for i in 0..<length {
+    builder.write_char(word_1_arr[i])
+    builder.write_char(word_2_arr[i])
+  }
+  let result = builder.to_string()
+  println(result)
+}
+
+///|
 /// Iter, Iter2で処理する
 pub fn e_01() -> Unit {
   let word = "パタトクカシーー"
