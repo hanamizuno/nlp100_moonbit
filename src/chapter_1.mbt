@@ -138,8 +138,7 @@ pub fn e_01() -> Unit {
     |> Iter2::iter()
     |> Iter::filter(pair => pair.0 % 2 == 0)
     |> Iter::map(pair => pair.1)
-    |> Iter::to_array()
-    |> String::from_array()
+    |> String::from_iter()
   println(result)
 }
 
@@ -148,13 +147,13 @@ pub fn e_01() -> Unit {
 pub fn e_01_2() -> Unit {
   let word = "パタトクカシーー"
   let arr = word.to_array()
-  let result : Array[Char] = []
+  let builder = StringBuilder::new(size_hint=arr.length() / 2)
   for i in 0..<arr.length() {
     if i % 2 == 0 {
-      result.push(arr[i])
+      builder.write_char(arr[i])
     }
   }
-  println(String::from_array(result))
+  println(builder.to_string())
 }
 
 ///|
