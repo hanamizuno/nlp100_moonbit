@@ -8,6 +8,7 @@ pub fn e_00() -> Unit {
   let result = word_1
     .to_array()
     .zip(word_2.to_array())
+    /// `(a, b) => a + b` みたいな書き方はできない
     .map(pair => String::from_array([pair.0, pair.1]))
     .join("")
   println(result)
@@ -99,5 +100,42 @@ pub fn e_00_5() -> Unit {
     /// テンプレートリテラルを使う
     result = result + "\{word_1_arr[i]}\{word_2_arr[i]}"
   }
+  println(result)
+}
+
+///|
+/// Iter, Iter2で処理する
+pub fn e_01() -> Unit {
+  let word = "パタトクカシーー"
+  let result = word
+    /// Iter2は (index, element)
+    |> String::iter2()
+    /// Iter2にはmap/filterがないので、Iterに変換する
+    |> Iter2::iter()
+    |> Iter::filter(pair => pair.0 % 2 == 0)
+    |> Iter::map(pair => pair.1)
+    |> Iter::to_array()
+    |> String::from_array()
+  println(result)
+}
+
+///|
+/// forループで処理する
+pub fn e_01_2() -> Unit {
+  let word = "パタトクカシーー"
+  let arr = word.to_array()
+  let result : Array[Char] = []
+  for i in 0..<arr.length() {
+    if i % 2 == 0 {
+      result.push(arr[i])
+    }
+  }
+  println(String::from_array(result))
+}
+
+///|
+pub fn e_02() -> Unit {
+  let word = "stressed"
+  let result = word |> String::rev()
   println(result)
 }
