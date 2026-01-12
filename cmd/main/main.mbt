@@ -4,4 +4,5 @@ fn main {
   @src.e_00()
   @src.e_00_2()
   @src.e_00_3()
+  @src.e_00_4()
 }
