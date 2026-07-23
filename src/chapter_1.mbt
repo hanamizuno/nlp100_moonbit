@@ -228,6 +228,34 @@ pub fn e_03() -> Array[Int] {
 }
 
 ///|
+/// ```mbt check
+/// test {
+///   @debug.debug_inspect(e_04(), content=(
+///   #|{
+///   #|  "H": 1,
+///   #|  "He": 2,
+///   #|  "Li": 3,
+///   #|  "Be": 4,
+///   #|  "B": 5,
+///   #|  "C": 6,
+///   #|  "N": 7,
+///   #|  "O": 8,
+///   #|  "F": 9,
+///   #|  "Ne": 10,
+///   #|  "Na": 11,
+///   #|  "Mi": 12,
+///   #|  "Al": 13,
+///   #|  "Si": 14,
+///   #|  "P": 15,
+///   #|  "S": 16,
+///   #|  "Cl": 17,
+///   #|  "Ar": 18,
+///   #|  "K": 19,
+///   #|  "Ca": 20,
+///   #|}
+/// ))
+/// }
+/// ```
 pub fn e_04() -> Map[String, Int] {
   let sentence = "Hi He Lied Because Boron Could Not Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can."
   let one_char_indices_1_based = [1, 5, 6, 7, 8, 9, 15, 16, 19]
