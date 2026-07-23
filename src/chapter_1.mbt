@@ -226,3 +226,32 @@ pub fn e_03() -> Array[Int] {
   |> Iter::map(StringView::length)
   |> Iter::to_array()
 }
+
+///|
+pub fn e_04() -> Map[String, Int] {
+  let sentence = "Hi He Lied Because Boron Could Not Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can."
+  let one_char_indices_1_based = [1, 5, 6, 7, 8, 9, 15, 16, 19]
+  let one_char_indices = one_char_indices_1_based |> Array::map(i => i - 1)
+  sentence
+  |> String::replace_all(old=",", new="")
+  |> String::replace_all(old=".", new="")
+  |> String::split(" ")
+  |> Iter::iter2()
+  |> Iter2::iter()
+  |> Iter::map(tuple => {
+    let (i, string) = tuple
+    if one_char_indices.contains(i) {
+      let key = string
+        |> StringView::to_string()
+        |> String::unsafe_substring(start=0, end=1)
+      (key, i + 1)
+    } else {
+      let key = string
+        |> StringView::to_string()
+        |> String::unsafe_substring(start=0, end=2)
+      (key, i + 1)
+    }
+  })
+  |> Map::from_iter()
+}
+
