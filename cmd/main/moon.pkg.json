@@ -4,6 +4,7 @@
     {
       "path": "hanamizuno/nlp100_moonbit/src",
       "alias": "src"
-    }
+    },
+    "moonbitlang/core/debug"
   ]
 }

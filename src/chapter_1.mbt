@@ -214,7 +214,7 @@ pub fn e_02() -> String {
 ///|
 /// ```mbt check
 /// test {
-///   inspect(e_03(), content="[3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9]")
+///   @debug.debug_inspect(e_03(), content="[3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9]")
 /// }
 /// ```
 pub fn e_03() -> Array[Int] {

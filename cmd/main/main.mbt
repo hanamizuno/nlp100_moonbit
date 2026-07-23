@@ -13,7 +13,7 @@ fn main {
   println("02. 文字列の逆順")
   println(@src.e_02())
   println("03. 円周率")
-  println(@src.e_03())
+  @debug.debug(@src.e_03())
   println("04. 元素記号")
-  println(@src.e_04())
+  @debug.debug(@src.e_04())
 }
