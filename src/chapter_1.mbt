@@ -55,7 +55,7 @@ pub fn e_00_3() -> String {
       ([], _) => []
       (_, []) => []
       ([hd_a, .. tl_a], [hd_b, .. tl_b]) =>
-        [(hd_a, hd_b)] + zip(tl_a.to_array(), tl_b.to_array())
+        [(hd_a, hd_b)] + zip(tl_a.to_owned(), tl_b.to_owned())
     }
   }
 
@@ -71,7 +71,7 @@ pub fn[A, B] zip_(a : Array[A], b : Array[B]) -> Array[(A, B)] {
     ([], _) => []
     (_, []) => []
     ([hd_a, .. tl_a], [hd_b, .. tl_b]) =>
-      [(hd_a, hd_b)] + zip_(tl_a.to_array(), tl_b.to_array())
+      [(hd_a, hd_b)] + zip_(tl_a.to_owned(), tl_b.to_owned())
   }
 }
 
