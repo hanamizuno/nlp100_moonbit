@@ -242,12 +242,12 @@ pub fn e_04() -> Map[String, Int] {
     let (i, string) = tuple
     if one_char_indices.contains(i) {
       let key = string
-        |> StringView::to_string()
+        |> StringView::to_owned()
         |> String::unsafe_substring(start=0, end=1)
       (key, i + 1)
     } else {
       let key = string
-        |> StringView::to_string()
+        |> StringView::to_owned()
         |> String::unsafe_substring(start=0, end=2)
       (key, i + 1)
     }
